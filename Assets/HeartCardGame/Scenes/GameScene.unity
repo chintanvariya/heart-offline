@@ -301,7 +301,7 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 26b4d89c94fd6493abd82899eae4030b, type: 2}
-  m_sharedMaterial: {fileID: -4183403061706280382, guid: eb0d0cc583ffd324f83a39125afb4352, type: 2}
+  m_sharedMaterial: {fileID: 3900902808983814783, guid: 26b4d89c94fd6493abd82899eae4030b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -364,7 +364,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &288574
@@ -2231,8 +2231,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventManager: {fileID: 397760170}
-  socketHandler: {fileID: 285811459}
-  socketEventManager: {fileID: 285811458}
   gameManager: {fileID: 1401407934}
   cardDeckController: {fileID: 1293011953}
   audioManager: {fileID: 840767012}
@@ -3756,8 +3754,6 @@ MonoBehaviour:
   - {fileID: 96078619}
   - {fileID: 1520256291}
   cardControllerList: []
-  socketEventManager: {fileID: 285811458}
-  socketHandler: {fileID: 285811459}
   gameManager: {fileID: 1401407934}
   cardDeckController: {fileID: 1293011953}
   myPlayer: {fileID: 337462607}
@@ -7997,6 +7993,7 @@ MonoBehaviour:
   gameManager: {fileID: 1401407934}
   uiManager: {fileID: 1048244265}
   isHeartBeatReceived: 0
+  missCount: 0
 --- !u!1 &291507799
 GameObject:
   m_ObjectHideFlags: 0
@@ -15265,14 +15262,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiManager: {fileID: 1048244265}
-  socketEventManager: {fileID: 285811458}
   gameManager: {fileID: 1401407934}
   eventManager: {fileID: 397760170}
-  socketHandler: {fileID: 285811459}
   joinTableHandler: {fileID: 651163762}
   gameStartTimerManager: {fileID: 114673220}
-  lobbyHandler: {fileID: 1206732894}
-  dashboardManager: {fileID: 1264256049}
   audioManager: {fileID: 840767012}
   leaveGameResponse:
     en: 
@@ -21704,13 +21697,13 @@ MonoBehaviour:
   m_text: '``'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 26b4d89c94fd6493abd82899eae4030b, type: 2}
-  m_sharedMaterial: {fileID: -4183403061706280382, guid: eb0d0cc583ffd324f83a39125afb4352, type: 2}
+  m_sharedMaterial: {fileID: 3900902808983814783, guid: 26b4d89c94fd6493abd82899eae4030b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290049024
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 2
@@ -21767,7 +21760,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &856731707
@@ -26278,8 +26271,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1401407934}
-  userRegistration: {fileID: 1264256050}
-  dashboardManager: {fileID: 1264256049}
   gameStartTimerPanel: {fileID: 114673216}
   gamePlayPanel: {fileID: 76320484}
   cardPassPanel: {fileID: 140006075}
@@ -32846,7 +32837,6 @@ MonoBehaviour:
   eventManager: {fileID: 397760170}
   gameManager: {fileID: 1401407934}
   uiManager: {fileID: 1048244265}
-  socketHandler: {fileID: 285811459}
   audioManager: {fileID: 840767012}
   offlineCardDistributor: {fileID: 709020885}
   showCardResponse:
@@ -35723,8 +35713,6 @@ MonoBehaviour:
   allCardDetails: {fileID: 1293011954}
   cardPassManager: {fileID: 140006079}
   cardDeckController: {fileID: 1293011953}
-  socketEventManager: {fileID: 285811458}
-  socketHandler: {fileID: 285811459}
   uiManager: {fileID: 1048244265}
   preCardPassHandler: {fileID: 93902674}
   turnInfoManager: {fileID: 1018831679}
@@ -39650,10 +39638,8 @@ MonoBehaviour:
   uiManager: {fileID: 1048244265}
   turnInfoManager: {fileID: 1018831679}
   winOfRound: {fileID: 1528736324}
-  socketHandler: {fileID: 285811459}
   joinTableHandler: {fileID: 651163762}
   audioManager: {fileID: 840767012}
-  dashboardManager: {fileID: 1264256049}
   offlineCardDistributor: {fileID: 709020885}
   cardDeckController: {fileID: 1293011953}
   offlineGameHandler: {fileID: 709020884}
@@ -43656,7 +43642,7 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 26b4d89c94fd6493abd82899eae4030b, type: 2}
-  m_sharedMaterial: {fileID: -4183403061706280382, guid: eb0d0cc583ffd324f83a39125afb4352, type: 2}
+  m_sharedMaterial: {fileID: 3900902808983814783, guid: 26b4d89c94fd6493abd82899eae4030b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -43719,7 +43705,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1735427085
@@ -47491,8 +47477,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventManager: {fileID: 397760170}
-  socketEventManager: {fileID: 285811458}
-  socketHandler: {fileID: 285811459}
   gameManager: {fileID: 1401407934}
   uiManager: {fileID: 1048244265}
   offlineGameHandler: {fileID: 709020884}
@@ -50417,8 +50401,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventManager: {fileID: 397760170}
   uiManager: {fileID: 1048244265}
-  socketEventManager: {fileID: 285811458}
-  socketHandler: {fileID: 285811459}
   cardDeckController: {fileID: 1293011953}
   joinTableHandler: {fileID: 651163762}
   gameManager: {fileID: 1401407934}
@@ -50885,6 +50867,9 @@ MonoBehaviour:
       updatedCoins: 0
       isClaimedDailyWheel: 0
       message: 
+  timeDuration: 0
+  speed: 0
+  currentAngleZ: 0
   spinnerBase: {fileID: 1109944615}
 --- !u!1 &2039696842
 GameObject:
@@ -52459,7 +52444,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiManager: {fileID: 1048244265}
   audioManager: {fileID: 840767012}
-  dashboardManager: {fileID: 1264256049}
   soundBtn: {fileID: 701720351}
   soundBtnImage: {fileID: 701720352}
   soundBtnOnSprite: {fileID: 21300000, guid: c2af6dca55ce87644a105d50b8d7543a, type: 3}

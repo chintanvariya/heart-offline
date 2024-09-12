@@ -32,7 +32,7 @@ namespace HeartCardGame
         [SerializeField] private HT_EventManager eventManager;
         [SerializeField] private HT_GameManager gameManager;
         [SerializeField] private HT_UiManager uiManager;
-        [SerializeField] private HT_SocketHandler socketHandler;
+
         [SerializeField] private HT_AudioManager audioManager;
         [SerializeField] private HT_OfflineCardDistributor offlineCardDistributor;
 

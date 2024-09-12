@@ -12,8 +12,8 @@ namespace HeartCardGame
     {
         [Header("===== Object Script =====")]
         [SerializeField] private HT_GameManager gameManager;
-        [SerializeField] private HT_UserRegistration userRegistration;
-        [SerializeField] private HT_DashboardManager dashboardManager;
+        //[SerializeField] private HT_UserRegistration userRegistration;
+        //[SerializeField] private HT_DashboardManager dashboardManager;
 
         [Header("===== Panel And Popup =====")]
         public GameObject gameStartTimerPanel;
@@ -140,39 +140,39 @@ namespace HeartCardGame
                 {
                     Debug.Log($"First");
                     dashboardPanel.SetActive(true);
-                    dashboardManager.PanelOnOff(dashboardManager.dashboardPanel, true);
-                    dashboardManager.PanelOnOff(dashboardManager.enterNamePanel, false);
-                    dashboardManager.userNameTxt.SetText($"{PlayerPrefs.GetString("UserName")}");
+                    //dashboardManager.PanelOnOff(dashboardManager.dashboardPanel, true);
+                    //dashboardManager.PanelOnOff(dashboardManager.enterNamePanel, false);
+                    //dashboardManager.userNameTxt.SetText($"{PlayerPrefs.GetString("UserName")}");
                     return;
                 }
                 else
                 {
                     Debug.Log($"Second");
-                    dashboardManager.enterNamePanel.SetActive(true);
+                    //dashboardManager.enterNamePanel.SetActive(true);
                     return;
                 }
             }
-            StartCoroutine(Network.InterConnectionCheck((isNetworkError) =>
-            {
-                if (isNetworkError)
-                {
-                    Debug.Log($"IsNetwork Error");
-                    dashboardManager.errorType = ErrorType.Error;
-                    dashboardManager.PopupOnOff(dashboardManager.commonPopup, true);
-                    dashboardManager.commonPopupTxt.SetText($"Something is went wrong. Please try again after some time.");
-                }
-                else
-                {
-                    Debug.Log($"Is InternetConnection Issue");
-                    NoInternetPanelOnOff(true, true);
-                }
-            }));
+            //StartCoroutine(Network.InterConnectionCheck((isNetworkError) =>
+            //{
+            //    if (isNetworkError)
+            //    {
+            //        Debug.Log($"IsNetwork Error");
+            //        dashboardManager.errorType = ErrorType.Error;
+            //        dashboardManager.PopupOnOff(dashboardManager.commonPopup, true);
+            //        dashboardManager.commonPopupTxt.SetText($"Something is went wrong. Please try again after some time.");
+            //    }
+            //    else
+            //    {
+            //        Debug.Log($"Is InternetConnection Issue");
+            //        NoInternetPanelOnOff(true, true);
+            //    }
+            //}));
         }
 
         public void NoInternetClose()
         {
             NoInternetPanelOnOff(false, false);
-            userRegistration.UserRegister(PlayerPrefs.GetString("UserName"));
+            ////userRegistration.UserRegister(PlayerPrefs.GetString("UserName"));
         }
 
         public void ResetUIManager()

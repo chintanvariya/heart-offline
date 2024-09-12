@@ -19,8 +19,10 @@ namespace HeartCardGame
 
         public void CardDistribution()
         {
+            Debug.Log($"HT_OfflineCardDistributor || CardDistribution ");
             cardsName = new List<string>(cardsOriginList);
             List<string> myPlayerCard = new();
+
             for (int i = 0; i < 13; i++)
             {
                 int randNum = Random.Range(0, cardsName.Count);

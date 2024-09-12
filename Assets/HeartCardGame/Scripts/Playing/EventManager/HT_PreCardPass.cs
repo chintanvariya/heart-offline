@@ -8,8 +8,6 @@ namespace HeartCardGame
     {
         [Header("===== Object Script =====")]
         [SerializeField] private HT_EventManager eventManager;
-        [SerializeField] private HT_SocketHandler socketHandler;
-        [SerializeField] private HT_SocketEventManager socketEventManager;
         [SerializeField] private HT_GameManager gameManager;
         [SerializeField] private HT_CardDeckController cardDeckController;
         [SerializeField] private HT_AudioManager audioManager;
@@ -49,7 +47,7 @@ namespace HeartCardGame
         public void PreCardSelectRequest(string cardName, bool isForward)
         {
             cardDeckController.myPlayer.AllCardTransparentImageOnOff(true);
-            socketHandler.DataSendToSocket(SocketEvents.PRE_CARD_PASS_SELECT.ToString(), socketEventManager.PreCardPassSelect(cardName, isForward, gameManager.tableId, gameManager.userId));
+            //socketHandler.DataSendToSocket(SocketEvents.PRE_CARD_PASS_SELECT.ToString(), socketEventManager.PreCardPassSelect(cardName, isForward, gameManager.tableId, gameManager.userId));
         }
     }
 

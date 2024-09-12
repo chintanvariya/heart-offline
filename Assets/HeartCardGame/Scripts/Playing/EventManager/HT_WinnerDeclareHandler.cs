@@ -12,10 +12,10 @@ namespace HeartCardGame
         [SerializeField] private HT_UiManager uiManager;
         [SerializeField] private HT_TurnInfoManager turnInfoManager;
         [SerializeField] private HT_WinOfRound winOfRound;
-        [SerializeField] private HT_SocketHandler socketHandler;
+
         [SerializeField] private HT_JoinTableHandler joinTableHandler;
         [SerializeField] private HT_AudioManager audioManager;
-        [SerializeField] private HT_DashboardManager dashboardManager;
+
         [SerializeField] private HT_OfflineCardDistributor offlineCardDistributor;
         [SerializeField] private HT_CardDeckController cardDeckController;
         [SerializeField] private HT_OfflineGameHandler offlineGameHandler;
@@ -99,7 +99,7 @@ namespace HeartCardGame
         {
             turnInfoManager.isFirstTurn = true;
             uiManager.shootingMoonPanel.SetActive(false);
-            dashboardManager.PanelOnOff(dashboardManager.howToPlayPanel, false);
+            //dashboardManager.PanelOnOff(dashboardManager.howToPlayPanel, false);
             uiManager.scoreboardBtn.interactable = true;
             gameManager.isHeartAnimationShow = true;
             uiManager.settingPanel.SetActive(false);
@@ -140,7 +140,7 @@ namespace HeartCardGame
 
             CancelInvoke(nameof(TimerOnWinningPanel));
 
-            dashboardManager.PanelOnOff(dashboardManager.howToPlayPanel, false);
+            //dashboardManager.PanelOnOff(dashboardManager.howToPlayPanel, false);
         }
 
         public void NewRoundSetting()
@@ -153,8 +153,8 @@ namespace HeartCardGame
             }
             else
             {
-                socketHandler.ForcefullySocketDisconnect();
-                socketHandler.InternetCheckInitiate();
+                //socketHandler.ForcefullySocketDisconnect();
+                //socketHandler.InternetCheckInitiate();
             }
         }
     }

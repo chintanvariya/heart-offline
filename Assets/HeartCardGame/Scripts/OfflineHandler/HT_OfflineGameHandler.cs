@@ -48,7 +48,11 @@ namespace HeartCardGame
             instance = this;
         }
 
-        private void Start() => gameManager.RoundReset += ResetOfflineGameHandler;
+        private void Start()
+        {
+            PlayerSetup();
+            gameManager.RoundReset += ResetOfflineGameHandler;
+        }
 
         public void PlayerSetup()
         {
@@ -165,7 +169,7 @@ namespace HeartCardGame
 
             for (int i = 0; i < remainingCard; i++)
             {
-            Recheck:
+                Recheck:
                 int temp = Random.Range(0, player.cardControllers.Count);
                 HT_CardController cardController = player.cardControllers[temp];
                 if (cardMoveList.Contains(cardController.myName))

@@ -41,7 +41,7 @@ namespace HeartCardGame
                 }
                 else if (!transParentObj.activeInHierarchy)
                 {
-                    gameManager.socketHandler.DataSendToSocket(SocketEvents.USER_THROW_CARD.ToString(), gameManager.socketEventManager.ThrowCardRequest(myName));
+                    //gameManager.socketHandler.DataSendToSocket(SocketEvents.USER_THROW_CARD.ToString(), gameManager.socketEventManager.ThrowCardRequest(myName));
                     cardSprite.raycastTarget = false;
                 }
             }
