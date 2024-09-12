@@ -17,7 +17,7 @@ namespace HeartCardGame
 
         [Header("===== Panel And Popup =====")]
         public GameObject gameStartTimerPanel;
-        public GameObject gamePlayPanel, cardPassPanel, settingPanel, leavePanel, winningPanel, scoreboardPanel, reconnectionPanel, noInternetPanel, shootingMoonPanel, heartBrokenPanel, dashboardPanel, gamePanel;
+        public GameObject gamePlayPanel, cardPassPanel, settingPanel, leavePanel, winningPanel, scoreboardPanel, reconnectionPanel, noInternetPanel, shootingMoonPanel, heartBrokenPanel, gamePanel;
         [SerializeField] private GameObject alertPopup;
 
         [Header("===== Rect Transform =====")]
@@ -139,7 +139,6 @@ namespace HeartCardGame
                 if (PlayerPrefs.HasKey("UserName"))
                 {
                     Debug.Log($"First");
-                    dashboardPanel.SetActive(true);
                     //dashboardManager.PanelOnOff(dashboardManager.dashboardPanel, true);
                     //dashboardManager.PanelOnOff(dashboardManager.enterNamePanel, false);
                     //dashboardManager.userNameTxt.SetText($"{PlayerPrefs.GetString("UserName")}");

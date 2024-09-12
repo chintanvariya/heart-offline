@@ -59,7 +59,7 @@ namespace HeartCardGame
             roundNum = 1;
             gameManager.isOffline = true;
             gameManager.tableState = TableState.OFFLINE;
-            uiManager.dashboardPanel.SetActive(false);
+            
             uiManager.scoreboardBtn.interactable = false;
             uiManager.gamePanel.SetActive(true);
             audioManager.BackgroundMusicOnOff();

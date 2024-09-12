@@ -39,7 +39,7 @@ namespace HeartCardGame
         public void PlayerSetOnTable(List<Seat> seats)
         {
             uiManager.gameStartTimerPanel.SetActive(true);
-            uiManager.dashboardPanel.SetActive(false);
+            
             uiManager.gamePanel.SetActive(true);
             int mySeatIndex = seats.Find((player) => player.userId.Equals(GetMyPlayer().userId)).si;
             playerData = playerDataOrigin.Skip(playerDataOrigin.Count - mySeatIndex).Concat(playerDataOrigin.Take(playerDataOrigin.Count - mySeatIndex)).ToList();
