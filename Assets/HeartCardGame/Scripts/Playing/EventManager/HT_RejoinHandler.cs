@@ -58,7 +58,7 @@ namespace HeartCardGame
             if (gameManager.tableState == TableState.START_DEALING_CARD || gameManager.tableState == TableState.CARD_PASS_ROUND_STARTED || gameManager.tableState == TableState.ROUND_STARTED || gameManager.tableState == TableState.CARD_MOVE_ROUND_STARTED)
                 CardSetAtRejoin(signupData.GAME_TABLE_INFO, gameManager.mySeatIndex);
 
-            uiManager.reconnectionPanel.SetActive(false);
+            //uiManager.reconnectionPanel.SetActive(false);
         }
 
         public void CardSetAtRejoin(GAMETABLEINFO gameTableInfo, int seatIndex)

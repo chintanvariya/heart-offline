@@ -74,6 +74,7 @@ namespace HeartCardGame
                     player.OfflinePlayerDataset(playerName, i, spritesList[randomSprite]);
                 }
             }
+
             if (gameManager.myUserSprite != null)
                 cardDeckController.myPlayer.mySprite.sprite = gameManager.myUserSprite;
             else
@@ -81,6 +82,7 @@ namespace HeartCardGame
                 int randomSprite = Random.Range(0, spritesList.Count);
                 cardDeckController.myPlayer.mySprite.sprite = spritesList[randomSprite];
             }
+
             gameStartTimerManager.GameStartTimer(5, true);
         }
 

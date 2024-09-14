@@ -17,7 +17,7 @@ namespace HeartCardGame
 
         [Header("===== Panel And Popup =====")]
         public GameObject gameStartTimerPanel;
-        public GameObject gamePlayPanel, cardPassPanel, settingPanel, leavePanel, winningPanel, scoreboardPanel, reconnectionPanel, noInternetPanel, shootingMoonPanel, heartBrokenPanel, gamePanel;
+        public GameObject gamePlayPanel, cardPassPanel, settingPanel, leavePanel, winningPanel, scoreboardPanel, shootingMoonPanel, heartBrokenPanel, gamePanel;
         [SerializeField] private GameObject alertPopup;
 
         [Header("===== Rect Transform =====")]
@@ -101,18 +101,6 @@ namespace HeartCardGame
             OtherPanelOpen(settingPanel, true);
         }
 
-        public void NoInternetPanelOnOff(bool isOpen, bool isCloseBtn)
-        {
-            if (isOpen && !noInternetPanel.activeInHierarchy)
-            {
-                noInternetPanel.transform.GetChild(0).localScale = Vector3.zero;
-                noInternetCloseBtn.SetActive(isCloseBtn);
-                noInternetPanel.SetActive(true);
-                noInternetPanel.transform.GetChild(0).DOScale(Vector3.one, 0.3f);
-            }
-            else if (!isOpen)
-                noInternetPanel.SetActive(false);
-        }
 
         public IEnumerator GetTexture(string profileURL, GameObject loader, Action<Sprite> getSprite)
         {
@@ -170,7 +158,7 @@ namespace HeartCardGame
 
         public void NoInternetClose()
         {
-            NoInternetPanelOnOff(false, false);
+            //NoInternetPanelOnOff(false, false);
             ////userRegistration.UserRegister(PlayerPrefs.GetString("UserName"));
         }
 

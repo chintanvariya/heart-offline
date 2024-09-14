@@ -27,7 +27,6 @@ namespace HeartCardGame
         {
             JoinTableResponse joinTableResponse = JsonConvert.DeserializeObject<JoinTableResponse>(data);
             PlayerSetOnTable(joinTableResponse.data.seats);
-            uiManager.reconnectionPanel.SetActive(false);
             tableId = joinTableResponse.data.tableId; // Store tableId for event send
         }
 

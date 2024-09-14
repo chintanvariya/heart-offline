@@ -31,7 +31,7 @@ namespace HeartCardGame
 
         public void PassCardDataSetting(string passBtn, int roundNum, int time)
         {
-            passBtnTxt.SetText($"Pass {passBtn.ToLower()}");
+            passBtnTxt.SetText($"PASS {passBtn.ToUpper()}");
             passCardTxt.SetText($"Pass 3 card {passBtn.ToLower()}");
             roundNumTxt.SetText($"{roundNum}");
             gameManager.tableState = gameManager.isOffline ? TableState.OFFLINE : TableState.CARD_PASS_ROUND_STARTED;

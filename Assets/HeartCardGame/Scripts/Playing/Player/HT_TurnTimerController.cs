@@ -21,7 +21,7 @@ namespace HeartCardGame
             timerFillingImg.gameObject.SetActive(true);
             timerFillingImg.fillAmount = remainTime / turnTime;
             playerController.isTurnStarted = true;
-            playerController.BlurImgOnOff(true);
+            //playerController.BlurImgOnOff(true);
             TimerCountingOnOff(turnTime, remainTime);
         }
 
@@ -62,7 +62,7 @@ namespace HeartCardGame
             dotParentTransform.eulerAngles = Vector3.zero;
             timerFillingImg.fillAmount = 1;
             playerController.isTurnStarted = false;
-            playerController.BlurImgOnOff(false);
+            //playerController.BlurImgOnOff(false);
             gameObject.SetActive(false);
         }
     }

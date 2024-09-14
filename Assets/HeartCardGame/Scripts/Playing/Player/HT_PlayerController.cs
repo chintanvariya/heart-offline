@@ -18,7 +18,7 @@ namespace HeartCardGame
         public int mySeatIndex;
         public Image mySprite;
         public Sprite defaultSprite;
-        public GameObject disconnectedObj, blurImgObj, leftObj, loaderAnimator;
+        public GameObject disconnectedObj, leftObj;
         Coroutine textureCoroutine;
 
         [Header("===== Heart Spade Info =====")]
@@ -71,7 +71,7 @@ namespace HeartCardGame
             HT_GameManager.instance.tableTxt.text = "#" + tableId;
         }
 
-        public void BlurImgOnOff(bool isOpen) => blurImgObj.SetActive(isOpen);
+        //public void BlurImgOnOff(bool isOpen) => blurImgObj.SetActive(isOpen);
 
         public void DisconnectedObjOnOff(bool isOpen) => disconnectedObj.SetActive(isOpen);
 
@@ -85,8 +85,9 @@ namespace HeartCardGame
             mySeatIndex = playerData.si;
             userId = playerData.userId;
             SetPlayerState(playerData.userState);
-            if (mySprite.sprite == defaultSprite)
-                GetTexture(playerData.pp);
+
+            //if (mySprite.sprite == defaultSprite)
+            //    GetTexture(playerData.pp);
         }
 
         public void OfflinePlayerDataset(string playerName, int si, Sprite playerProfile)
@@ -122,6 +123,7 @@ namespace HeartCardGame
             handCard = cardController;
             if (isMyPlayer)
             {
+                cardController.myRectTransform.DOSizeDelta(deckCardHolder.sizeDelta, 0.2f);
                 cardController.myRectTransform.DOLocalMove(Vector3.zero, 0.2f).OnStart(() =>
                 {
                     AllCardTransparentImageOnOff(true);
@@ -149,6 +151,7 @@ namespace HeartCardGame
             }
             else
             {
+                cardController.myRectTransform.DOSizeDelta(deckCardHolder.sizeDelta, 0.2f);
                 cardController.myRectTransform.DOLocalMove(Vector3.zero, 0.2f).OnStart(() =>
                 {
                     Debug.Log($"Opponent card move");
@@ -281,7 +284,7 @@ namespace HeartCardGame
             rects.Clear();
         }
 
-        public void GetTexture(string profileURL) => textureCoroutine = StartCoroutine(GetTexture(profileURL, loaderAnimator, (sprite) => mySprite.sprite = sprite));
+        //public void GetTexture(string profileURL) => textureCoroutine = StartCoroutine(GetTexture(profileURL, loaderAnimator, (sprite) => mySprite.sprite = sprite));
 
         public IEnumerator GetTexture(string profileURL, GameObject loader, Action<Sprite> getSprite)
         {
@@ -354,7 +357,6 @@ namespace HeartCardGame
             if (textureCoroutine != null)
                 StopCoroutine(textureCoroutine);
 
-            loaderAnimator.SetActive(false);
 
             passCardList.Clear();
 
