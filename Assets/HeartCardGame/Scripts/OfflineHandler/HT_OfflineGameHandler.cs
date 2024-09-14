@@ -61,7 +61,7 @@ namespace HeartCardGame
             gameManager.tableState = TableState.OFFLINE;
             
             uiManager.scoreboardBtn.interactable = false;
-            uiManager.gamePanel.SetActive(true);
+            //uiManager.gamePanel.SetActive(true);
             audioManager.BackgroundMusicOnOff();
             joinTableHandler.playerData = new(joinTableHandler.playerDataOrigin);
             for (int i = 0; i < joinTableHandler.playerData.Count; i++)

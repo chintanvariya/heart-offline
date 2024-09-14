@@ -26,13 +26,13 @@ namespace HeartCardGame
                 heartInfoObj.SetActive(true);
             if (spadeCount > 0)
                 spadeInfoObj.SetActive(true);
-            if (HT_GameManager.instance.isOffline)
-            {
-                loaderObj.SetActive(false);
-                profileImg.sprite = sprite;
-            }
-            else
-                HT_GameManager.instance.uiManager.StartCoroutine(HT_GameManager.instance.uiManager.GetTexture(profilePic, loaderObj, (sprite) => profileImg.sprite = sprite));
+            profileImg.sprite = sprite;
+            //if (HT_GameManager.instance.isOffline)
+            //{
+            //    loaderObj.SetActive(false);
+            //}
+            //else
+            //    HT_GameManager.instance.uiManager.StartCoroutine(HT_GameManager.instance.uiManager.GetTexture(profilePic, loaderObj, (sprite) => profileImg.sprite = sprite));
         }
     }
 }
