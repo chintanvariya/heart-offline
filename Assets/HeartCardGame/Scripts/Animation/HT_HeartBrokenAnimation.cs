@@ -22,7 +22,7 @@ namespace HeartCardGame
 
             heartBroken.gameObject.SetActive(true);
             heartBroken.Play();
-            Invoke(nameof(ResetHeartBrokenAnimation), 1f);
+            Invoke(nameof(ResetHeartBrokenAnimation), 0.65f);
             //heartObjRectTransform.DOShakePosition(1f, 20, 50, 200).OnComplete(() =>
             //{
             //    uiManager.heartBrokenPanel.SetActive(false);

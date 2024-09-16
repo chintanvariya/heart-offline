@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
+using FGSOfflineCallBreak;
 
 namespace HeartCardGame
 {
@@ -60,6 +61,7 @@ namespace HeartCardGame
 
         public void PlayerSetup()
         {
+            CallBreakGameManager.isInGamePlay = true;
             gamePlay.SetActive(true);
             roundNum = 1;
             gameManager.isOffline = true;
@@ -74,18 +76,26 @@ namespace HeartCardGame
                 var player = joinTableHandler.playerData[i];
                 if (!player.isMyPlayer)
                 {
-                    string playerName = $"Player {i}";
-                    int randomSprite = Random.Range(0, spritesList.Count);
-                    player.OfflinePlayerDataset(playerName, i, spritesList[randomSprite]);
+                    string playerName = CallBreakConstants.BotNames[UnityEngine.Random.Range(0, CallBreakConstants.BotNames.Count)];
+                    Sprite randomSprite = CallBreakGameManager.instance.allBotSprite[UnityEngine.Random.Range(0, CallBreakGameManager.instance.allBotSprite.Count)];
+                    player.OfflinePlayerDataset(playerName, i, randomSprite);
+
+                    //userImage.sprite =
+                }
+                else
+                {
+                    string playerName = CallBreakGameManager.instance.selfUserDetails.userName;
+                    Sprite randomSprite = CallBreakGameManager.instance.allProfileSprite[CallBreakGameManager.instance.selfUserDetails.userAvatarIndex];
+                    player.OfflinePlayerDataset(playerName, i, randomSprite);
                 }
             }
 
             if (gameManager.myUserSprite != null)
-                cardDeckController.myPlayer.mySprite.sprite = gameManager.myUserSprite;
+                cardDeckController.myPlayer.mySprite.sprite = CallBreakGameManager.instance.allProfileSprite[CallBreakGameManager.instance.selfUserDetails.userAvatarIndex];
             else
             {
-                int randomSprite = Random.Range(0, spritesList.Count);
-                cardDeckController.myPlayer.mySprite.sprite = spritesList[randomSprite];
+                Sprite randomSprite = CallBreakGameManager.instance.allBotSprite[UnityEngine.Random.Range(0, CallBreakGameManager.instance.allBotSprite.Count)];
+                cardDeckController.myPlayer.mySprite.sprite = randomSprite;
             }
 
             gameStartTimerManager.GameStartTimer(5, true);

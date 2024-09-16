@@ -69,6 +69,7 @@ namespace FGSOfflineCallBreak
 
         public ParticleSystem particlesOfHukum;
 
+        public List<Sprite> allBotSprite = new List<Sprite>();
 
         private void Awake()
         {

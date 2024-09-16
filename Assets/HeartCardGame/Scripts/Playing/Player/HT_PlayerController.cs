@@ -6,6 +6,7 @@ using DG.Tweening;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.Networking;
+using FGSOfflineCallBreak;
 
 namespace HeartCardGame
 {
@@ -29,7 +30,7 @@ namespace HeartCardGame
         public GameObject player;
         public Transform handCardStore;
         public RectTransform heartInfoObj, spadeInfoObj;
-        public TextMeshProUGUI nameTxt, heartInfoTxt, spadeInfoTxt;
+        public TextMeshProUGUI nameTxt, heartInfoTxt, spadeInfoTxt, chipsTxt;
 
         [Header("===== Player Card Data =====")]
         public List<HT_CardController> cardControllers;
@@ -92,6 +93,10 @@ namespace HeartCardGame
 
         public void OfflinePlayerDataset(string playerName, int si, Sprite playerProfile)
         {
+            if (isMyPlayer)
+            {
+                chipsTxt.text = CallBreakUtilities.AbbreviateNumber(CallBreakGameManager.instance.selfUserDetails.userChips);
+            }
             nameTxt.SetText(playerName);
             userName = playerName;
             mySeatIndex = si;
