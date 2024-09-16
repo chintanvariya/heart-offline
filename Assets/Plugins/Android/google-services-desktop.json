@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "248418748706",
+    "project_id": "call-break-offline-de029",
+    "storage_bucket": "call-break-offline-de029.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:248418748706:android:fd3472bdc92b301eab3d7b",
+        "android_client_info": {
+          "package_name": "com.finixgamestudio.CallBreakOffline"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAenMxMr-6rpGonkuMi5fORFzd4dEVCG10"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

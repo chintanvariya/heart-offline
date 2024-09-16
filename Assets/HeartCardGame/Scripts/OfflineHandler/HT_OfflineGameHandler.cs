@@ -48,16 +48,20 @@ namespace HeartCardGame
             instance = this;
         }
 
-        private void Start() => gameManager.RoundReset += ResetOfflineGameHandler;
+        private void Start()
+        {
+            PlayerSetup();
+            gameManager.RoundReset += ResetOfflineGameHandler;
+        }
 
         public void PlayerSetup()
         {
             roundNum = 1;
             gameManager.isOffline = true;
             gameManager.tableState = TableState.OFFLINE;
-            uiManager.dashboardPanel.SetActive(false);
+            
             uiManager.scoreboardBtn.interactable = false;
-            uiManager.gamePanel.SetActive(true);
+            //uiManager.gamePanel.SetActive(true);
             audioManager.BackgroundMusicOnOff();
             joinTableHandler.playerData = new(joinTableHandler.playerDataOrigin);
             for (int i = 0; i < joinTableHandler.playerData.Count; i++)
@@ -70,6 +74,7 @@ namespace HeartCardGame
                     player.OfflinePlayerDataset(playerName, i, spritesList[randomSprite]);
                 }
             }
+
             if (gameManager.myUserSprite != null)
                 cardDeckController.myPlayer.mySprite.sprite = gameManager.myUserSprite;
             else
@@ -77,6 +82,7 @@ namespace HeartCardGame
                 int randomSprite = Random.Range(0, spritesList.Count);
                 cardDeckController.myPlayer.mySprite.sprite = spritesList[randomSprite];
             }
+
             gameStartTimerManager.GameStartTimer(5, true);
         }
 
@@ -165,7 +171,7 @@ namespace HeartCardGame
 
             for (int i = 0; i < remainingCard; i++)
             {
-            Recheck:
+                Recheck:
                 int temp = Random.Range(0, player.cardControllers.Count);
                 HT_CardController cardController = player.cardControllers[temp];
                 if (cardMoveList.Contains(cardController.myName))

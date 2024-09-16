@@ -10,8 +10,7 @@ namespace HeartCardGame
     {
         [Header("===== Object Script =====")]
         [SerializeField] private HT_EventManager eventManager;
-        [SerializeField] private HT_SocketEventManager socketEventManager;
-        [SerializeField] private HT_SocketHandler socketHandler;
+
         [SerializeField] private HT_GameManager gameManager;
         [SerializeField] private HT_UiManager uiManager;
         [SerializeField] private HT_OfflineGameHandler offlineGameHandler;
@@ -66,8 +65,8 @@ namespace HeartCardGame
                 }
                 uiManager.OtherPanelOpen(uiManager.scoreboardPanel, true);
             }
-            else
-                socketHandler.DataSendToSocket(SocketEvents.SHOW_SCORE_BOARD.ToString(), socketEventManager.ShowScoreboard(gameManager.tableId));
+            //else
+            //    socketHandler.DataSendToSocket(SocketEvents.SHOW_SCORE_BOARD.ToString(), socketEventManager.ShowScoreboard(gameManager.tableId));
         }
 
         public void ResetShowScoreboard()

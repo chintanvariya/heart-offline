@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/HeartCardGame/Scenes/SplashScreen.unity
-    guid: e72b5eb57cfc9eb4fa183d2465decfa1
-  - enabled: 1
-    path: Assets/HeartCardGame/Scenes/GameScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/_CallBreak/Scenes/CallBreak.unity
+    guid: 69e9513de6e2740ffb12840e08c893cc
   m_configObjects: {}

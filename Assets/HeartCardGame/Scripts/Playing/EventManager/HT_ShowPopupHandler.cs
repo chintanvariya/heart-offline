@@ -24,7 +24,7 @@ namespace HeartCardGame
                 uiManager.CommonTooltipSet(showPopupResponse.data.message, true, true);
             else
                 uiManager.AlertPopupOnOff(showPopupResponse.data.message, showPopupResponse.data.button_text[0], showPopupResponse.data.title, true);
-            uiManager.reconnectionPanel.SetActive(false);
+            //uiManager.reconnectionPanel.SetActive(false);
         }
     }
 

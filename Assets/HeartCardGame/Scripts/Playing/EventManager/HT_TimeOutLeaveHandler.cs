@@ -8,8 +8,8 @@ namespace HeartCardGame
         [Header("===== Object Script =====")]
         [SerializeField] private HT_EventManager eventManager;
         [SerializeField] private HT_UiManager uiManager;
-        [SerializeField] private HT_SocketEventManager socketEventManager;
-        [SerializeField] private HT_SocketHandler socketHandler;
+
+
         [SerializeField] private HT_CardDeckController cardDeckController;
         [SerializeField] private HT_JoinTableHandler joinTableHandler;
         [SerializeField] private HT_GameManager gameManager;
@@ -54,8 +54,10 @@ namespace HeartCardGame
                 gameManager.ReloadScene();
                 return;
             }
-            if (gameManager.tableState == TableState.ROUND_STARTED || gameManager.tableState == TableState.START_DEALING_CARD || gameManager.tableState == TableState.CARD_MOVE_ROUND_STARTED || gameManager.tableState == TableState.CARD_PASS_ROUND_STARTED)
-                socketHandler.DataSendToSocket(SocketEvents.BACK_IN_GAME_PLAYING.ToString(), socketEventManager.BackInGamePlayRequest());
+
+            //if (gameManager.tableState == TableState.ROUND_STARTED || gameManager.tableState == TableState.START_DEALING_CARD || gameManager.tableState == TableState.CARD_MOVE_ROUND_STARTED || gameManager.tableState == TableState.CARD_PASS_ROUND_STARTED)
+            //    socketHandler.DataSendToSocket(SocketEvents.BACK_IN_GAME_PLAYING.ToString(), socketEventManager.BackInGamePlayRequest());
+
             if (gameManager.tableState == TableState.NONE || gameManager.tableState == TableState.DASHBOARD)
             {
                 Debug.Log($"Come 2");

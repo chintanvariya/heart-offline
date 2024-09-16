@@ -7,14 +7,10 @@ namespace HeartCardGame
     {
         [Header("===== Object Script =====")]
         [SerializeField] private HT_UiManager uiManager;
-        [SerializeField] private HT_SocketEventManager socketEventManager;
         [SerializeField] private HT_GameManager gameManager;
         [SerializeField] private HT_EventManager eventManager;
-        [SerializeField] private HT_SocketHandler socketHandler;
         [SerializeField] private HT_JoinTableHandler joinTableHandler;
         [SerializeField] private HT_GameStartTimerManager gameStartTimerManager;
-        [SerializeField] private HT_LobbyHandler lobbyHandler;
-        [SerializeField] private HT_DashboardManager dashboardManager;
         [SerializeField] private HT_AudioManager audioManager;
 
         [Header("===== Model Class =====")]
@@ -51,10 +47,10 @@ namespace HeartCardGame
 
         public void ClickOnErrorPopup()
         {
-            if (dashboardManager.errorType == ErrorType.Error)
-                PlayerLeave();
-            if (dashboardManager.errorType == ErrorType.Alert)
-                dashboardManager.commonPopup.SetActive(false);
+            //if (dashboardManager.errorType == ErrorType.Error)
+            //    PlayerLeave();
+            //if (dashboardManager.errorType == ErrorType.Alert)
+            //    dashboardManager.commonPopup.SetActive(false);
         }
 
         public void PlayerLeave()
@@ -69,18 +65,18 @@ namespace HeartCardGame
 
         public void GetLobbyOnGamePlay()
         {
-            socketHandler.CancelInvoke(nameof(socketHandler.InternetChecking));
-            audioManager.backgroundAudioSource.mute = true;
-            socketHandler.ForcefullySocketDisconnect();
-            gameManager.cardPassManager.cardPassBtn.interactable = false;
-            gameManager.turnInfoManager.isFirstTurn = true;
-            gameManager.isHeartAnimationShow = true;
-            gameManager.isCardPassed = false;
-            gameManager.tableState = TableState.DASHBOARD;
-            lobbyHandler.GetLobby();
-            uiManager.gamePanel.SetActive(false);
-            dashboardManager.lobbyPanel.SetActive(true);
-            uiManager.dashboardPanel.SetActive(true);
+            //socketHandler.CancelInvoke(nameof(socketHandler.InternetChecking));
+            //audioManager.backgroundAudioSource.mute = true;
+            //socketHandler.ForcefullySocketDisconnect();
+            //gameManager.cardPassManager.cardPassBtn.interactable = false;
+            //gameManager.turnInfoManager.isFirstTurn = true;
+            //gameManager.isHeartAnimationShow = true;
+            //gameManager.isCardPassed = false;
+            //gameManager.tableState = TableState.DASHBOARD;
+            //lobbyHandler.GetLobby();
+            //uiManager.gamePanel.SetActive(false);
+            //dashboardManager.lobbyPanel.SetActive(true);
+            //uiManager.dashboardPanel.SetActive(true);
         }
 
         public void LeaveButtonPressed() => uiManager.OtherPanelOpen(uiManager.leavePanel, true);
@@ -94,8 +90,8 @@ namespace HeartCardGame
                 Debug.Log($"Leave Button Pressed");
                 gameManager.ReloadScene();
             }
-            else
-                socketHandler.DataSendToSocket(SocketEvents.LEAVE_TABLE.ToString(), socketEventManager.LeaveGameRequest(gameManager.tableId, gameManager.userId));
+            //else
+            //    socketHandler.DataSendToSocket(SocketEvents.LEAVE_TABLE.ToString(), socketEventManager.LeaveGameRequest(gameManager.tableId, gameManager.userId));
         }
     }
 

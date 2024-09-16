@@ -20,8 +20,7 @@ namespace HeartCardGame
         public List<HT_CardController> cardControllerList;
 
         [Header("===== Object Script =====")]
-        [SerializeField] private HT_SocketEventManager socketEventManager;
-        [SerializeField] private HT_SocketHandler socketHandler;
+
         [SerializeField] private HT_GameManager gameManager;
         [SerializeField] private HT_CardDeckController cardDeckController;
         [SerializeField] private HT_PlayerController myPlayer;
@@ -32,7 +31,7 @@ namespace HeartCardGame
 
         public void PassCardDataSetting(string passBtn, int roundNum, int time)
         {
-            passBtnTxt.SetText($"Pass {passBtn.ToLower()}");
+            passBtnTxt.SetText($"PASS {passBtn.ToUpper()}");
             passCardTxt.SetText($"Pass 3 card {passBtn.ToLower()}");
             roundNumTxt.SetText($"{roundNum}");
             gameManager.tableState = gameManager.isOffline ? TableState.OFFLINE : TableState.CARD_PASS_ROUND_STARTED;
@@ -113,7 +112,7 @@ namespace HeartCardGame
             else
             {
                 List<string> stringList = cardControllerList.Select(obj => obj.myName).ToList();
-                socketHandler.DataSendToSocket(SocketEvents.CARD_PASS.ToString(), socketEventManager.PassCardRequest(gameManager.tableId, gameManager.userId, stringList));
+                //socketHandler.DataSendToSocket(SocketEvents.CARD_PASS.ToString(), socketEventManager.PassCardRequest(gameManager.tableId, gameManager.userId, stringList));
             }
         }
 

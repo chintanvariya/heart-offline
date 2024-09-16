@@ -9,7 +9,6 @@ namespace HeartCardGame
         [Header("===== Object Scripts =====")]
         [SerializeField] private HT_UiManager uiManager;
         [SerializeField] private HT_AudioManager audioManager;
-        [SerializeField] private HT_DashboardManager dashboardManager;
 
         [Header("===== Sound Data =====")]
         [SerializeField] private Button soundBtn;
@@ -128,7 +127,7 @@ namespace HeartCardGame
 
         public void ClickOnHowToPlayBtn()
         {
-            dashboardManager.PanelOnOff(dashboardManager.howToPlayPanel, true);
+            //dashboardManager.PanelOnOff(dashboardManager.howToPlayPanel, true);
             uiManager.OtherPanelOpen(uiManager.settingPanel, false);
         }
     }

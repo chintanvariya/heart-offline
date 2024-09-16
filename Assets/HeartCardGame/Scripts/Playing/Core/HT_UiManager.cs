@@ -12,12 +12,12 @@ namespace HeartCardGame
     {
         [Header("===== Object Script =====")]
         [SerializeField] private HT_GameManager gameManager;
-        [SerializeField] private HT_UserRegistration userRegistration;
-        [SerializeField] private HT_DashboardManager dashboardManager;
+        //[SerializeField] private HT_UserRegistration userRegistration;
+        //[SerializeField] private HT_DashboardManager dashboardManager;
 
         [Header("===== Panel And Popup =====")]
         public GameObject gameStartTimerPanel;
-        public GameObject gamePlayPanel, cardPassPanel, settingPanel, leavePanel, winningPanel, scoreboardPanel, reconnectionPanel, noInternetPanel, shootingMoonPanel, heartBrokenPanel, dashboardPanel, gamePanel;
+        public GameObject gamePlayPanel, cardPassPanel, settingPanel, leavePanel, winningPanel, scoreboardPanel, shootingMoonPanel, heartBrokenPanel, gamePanel;
         [SerializeField] private GameObject alertPopup;
 
         [Header("===== Rect Transform =====")]
@@ -101,18 +101,6 @@ namespace HeartCardGame
             OtherPanelOpen(settingPanel, true);
         }
 
-        public void NoInternetPanelOnOff(bool isOpen, bool isCloseBtn)
-        {
-            if (isOpen && !noInternetPanel.activeInHierarchy)
-            {
-                noInternetPanel.transform.GetChild(0).localScale = Vector3.zero;
-                noInternetCloseBtn.SetActive(isCloseBtn);
-                noInternetPanel.SetActive(true);
-                noInternetPanel.transform.GetChild(0).DOScale(Vector3.one, 0.3f);
-            }
-            else if (!isOpen)
-                noInternetPanel.SetActive(false);
-        }
 
         public IEnumerator GetTexture(string profileURL, GameObject loader, Action<Sprite> getSprite)
         {
@@ -139,40 +127,39 @@ namespace HeartCardGame
                 if (PlayerPrefs.HasKey("UserName"))
                 {
                     Debug.Log($"First");
-                    dashboardPanel.SetActive(true);
-                    dashboardManager.PanelOnOff(dashboardManager.dashboardPanel, true);
-                    dashboardManager.PanelOnOff(dashboardManager.enterNamePanel, false);
-                    dashboardManager.userNameTxt.SetText($"{PlayerPrefs.GetString("UserName")}");
+                    //dashboardManager.PanelOnOff(dashboardManager.dashboardPanel, true);
+                    //dashboardManager.PanelOnOff(dashboardManager.enterNamePanel, false);
+                    //dashboardManager.userNameTxt.SetText($"{PlayerPrefs.GetString("UserName")}");
                     return;
                 }
                 else
                 {
                     Debug.Log($"Second");
-                    dashboardManager.enterNamePanel.SetActive(true);
+                    //dashboardManager.enterNamePanel.SetActive(true);
                     return;
                 }
             }
-            StartCoroutine(Network.InterConnectionCheck((isNetworkError) =>
-            {
-                if (isNetworkError)
-                {
-                    Debug.Log($"IsNetwork Error");
-                    dashboardManager.errorType = ErrorType.Error;
-                    dashboardManager.PopupOnOff(dashboardManager.commonPopup, true);
-                    dashboardManager.commonPopupTxt.SetText($"Something is went wrong. Please try again after some time.");
-                }
-                else
-                {
-                    Debug.Log($"Is InternetConnection Issue");
-                    NoInternetPanelOnOff(true, true);
-                }
-            }));
+            //StartCoroutine(Network.InterConnectionCheck((isNetworkError) =>
+            //{
+            //    if (isNetworkError)
+            //    {
+            //        Debug.Log($"IsNetwork Error");
+            //        dashboardManager.errorType = ErrorType.Error;
+            //        dashboardManager.PopupOnOff(dashboardManager.commonPopup, true);
+            //        dashboardManager.commonPopupTxt.SetText($"Something is went wrong. Please try again after some time.");
+            //    }
+            //    else
+            //    {
+            //        Debug.Log($"Is InternetConnection Issue");
+            //        NoInternetPanelOnOff(true, true);
+            //    }
+            //}));
         }
 
         public void NoInternetClose()
         {
-            NoInternetPanelOnOff(false, false);
-            userRegistration.UserRegister(PlayerPrefs.GetString("UserName"));
+            //NoInternetPanelOnOff(false, false);
+            ////userRegistration.UserRegister(PlayerPrefs.GetString("UserName"));
         }
 
         public void ResetUIManager()

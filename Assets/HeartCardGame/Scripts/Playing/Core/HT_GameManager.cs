@@ -17,8 +17,8 @@ namespace HeartCardGame
         public HT_AllCardDetails allCardDetails;
         public HT_CardPassManager cardPassManager;
         public HT_CardDeckController cardDeckController;
-        public HT_SocketEventManager socketEventManager;
-        public HT_SocketHandler socketHandler;
+
+
         public HT_UiManager uiManager;
         public HT_PreCardPass preCardPassHandler;
         public HT_TurnInfoManager turnInfoManager;
@@ -72,7 +72,7 @@ namespace HeartCardGame
         public void ReloadScene()
         {
             audioManager.backgroundAudioSource.mute = true;
-            socketHandler.ForcefullySocketDisconnect();
+            //socketHandler.ForcefullySocketDisconnect();
             UnityEngine.SceneManagement.SceneManager.LoadScene(1);
         }
 
