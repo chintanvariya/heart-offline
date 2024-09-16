@@ -6,6 +6,7 @@ using UnityEditor.Experimental;
 using GoogleMobileAds.Api;
 using System;
 using UnityEditor;
+using HeartCardGame;
 
 namespace FGSOfflineCallBreak
 {
@@ -365,7 +366,9 @@ namespace FGSOfflineCallBreak
             CallBreakGameManager.instance.selfUserDetails.userChips -= currentLobbyPlay.lobbyAmount;
             CallBreakConstants.UserDetialsJsonString = CallBreakUtilities.ReturnJsonString(CallBreakGameManager.instance.selfUserDetails);
             CallBreakGameManager.instance.lobbyAmount = currentLobbyPlay.lobbyAmount;
-            CallBreakUIManager.Instance.gamePlayController.OpenScreen();
+
+            HT_OfflineGameHandler.instance.StartGamePlay();
+
             profileUiController.CloseScreen();
             CloseScreen();
 
@@ -376,6 +379,8 @@ namespace FGSOfflineCallBreak
         public void OnAdFullScreenContentFailed(AdError error)
         {
             CallBreakUIManager.Instance.preLoaderController.ClosePreloader();
+            HT_OfflineGameHandler.instance.StartGamePlay();
+
         }
 
         private void OnAdFullScreenContentClosedHandler()
@@ -392,7 +397,9 @@ namespace FGSOfflineCallBreak
                 CallBreakGameManager.instance.selfUserDetails.userChips -= currentLobbyPlay.lobbyAmount;
                 CallBreakConstants.UserDetialsJsonString = CallBreakUtilities.ReturnJsonString(CallBreakGameManager.instance.selfUserDetails);
                 CallBreakGameManager.instance.lobbyAmount = currentLobbyPlay.lobbyAmount;
-                CallBreakUIManager.Instance.gamePlayController.OpenScreen();
+
+                HT_OfflineGameHandler.instance.StartGamePlay();
+
                 profileUiController.CloseScreen();
                 CloseScreen();
             }

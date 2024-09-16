@@ -17,8 +17,8 @@ namespace HeartCardGame
 
         [Header("===== Panel And Popup =====")]
         public GameObject gameStartTimerPanel;
-        public GameObject gamePlayPanel, cardPassPanel, settingPanel, leavePanel, winningPanel, scoreboardPanel, shootingMoonPanel, heartBrokenPanel, gamePanel;
-        [SerializeField] private GameObject alertPopup;
+        public GameObject gamePlayPanel, cardPassPanel, settingPanel, leavePanel, winningPanel, scoreboardPanel, shootingMoonPanel, heartBrokenPanel, gamePanel, howToPlay;
+        //[SerializeField] private GameObject alertPopup;
 
         [Header("===== Rect Transform =====")]
         public RectTransform gameStartTransform;
@@ -39,18 +39,18 @@ namespace HeartCardGame
         {
             if (isOpen)
             {
-                alertPopup.SetActive(true);
+                //alertPopup.SetActive(true);
                 alertTxt.SetText(alertMsg);
                 btnTxt.SetText(btnMsg);
                 titleTxt.SetText(title);
-                alertPopup.transform.GetChild(0).DOScale(Vector3.one, 0.3f).SetEase(Ease.OutBack);
+                //alertPopup.transform.GetChild(0).DOScale(Vector3.one, 0.3f).SetEase(Ease.OutBack);
             }
             else
             {
-                alertPopup.transform.GetChild(0).DOScale(Vector3.zero, 0.3f).OnComplete(() =>
-                {
-                    alertPopup.SetActive(false);
-                });
+                //alertPopup.transform.GetChild(0).DOScale(Vector3.zero, 0.3f).OnComplete(() =>
+                //{
+                //    alertPopup.SetActive(false);
+                //});
             }
         }
 
@@ -168,7 +168,7 @@ namespace HeartCardGame
             cardPassPanel.SetActive(false);
             settingPanel.SetActive(false);
             leavePanel.SetActive(false);
-            alertPopup.SetActive(false);
+            //alertPopup.SetActive(false);
             winningPanel.SetActive(false);
             scoreboardPanel.SetActive(false);
             gameStartTxt.SetText("");

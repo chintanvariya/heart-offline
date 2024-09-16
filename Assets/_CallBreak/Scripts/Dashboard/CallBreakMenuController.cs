@@ -1,4 +1,5 @@
 using DG.Tweening;
+using HeartCardGame;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,6 +31,7 @@ namespace FGSOfflineCallBreak
         public Transform allSettingButtonRoot;
         public RectTransform closeSettingButton;
 
+        public HT_UiManager uiManager;
         public void ChangeTheAnchorPos(Vector2 anchorPos)
         {
             menuRoot.anchorMax = anchorPos;

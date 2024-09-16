@@ -10,6 +10,8 @@ namespace HeartCardGame
         public static HT_OfflineGameHandler instance;
 
         [Header("===== Object Scripts =====")]
+        [SerializeField] private GameObject gamePlay;
+
         [SerializeField] private HT_JoinTableHandler joinTableHandler;
         [SerializeField] private HT_GameStartTimerManager gameStartTimerManager;
         [SerializeField] private HT_UiManager uiManager;
@@ -50,16 +52,19 @@ namespace HeartCardGame
 
         private void Start()
         {
-            PlayerSetup();
             gameManager.RoundReset += ResetOfflineGameHandler;
         }
 
+        public void StartGamePlay() => PlayerSetup();
+
+
         public void PlayerSetup()
         {
+            gamePlay.SetActive(true);
             roundNum = 1;
             gameManager.isOffline = true;
             gameManager.tableState = TableState.OFFLINE;
-            
+
             uiManager.scoreboardBtn.interactable = false;
             //uiManager.gamePanel.SetActive(true);
             audioManager.BackgroundMusicOnOff();
