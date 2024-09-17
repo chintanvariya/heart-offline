@@ -48,9 +48,12 @@ namespace FGSOfflineCallBreak
             CallBreakUIManager.Instance.bidSelectionController.CloseScreen();
             CallBreakUIManager.Instance.scoreBoardController.CloseScreen();
 
-            StopCoroutine(setAndStartGamePlay);
-            StopCoroutine(cardDistributeAnimation);
-            StopCoroutine(selfPlayerCard);
+            if (setAndStartGamePlay != null)
+                StopCoroutine(setAndStartGamePlay);
+            if (cardDistributeAnimation != null)
+                StopCoroutine(cardDistributeAnimation);
+            if (selfPlayerCard != null)
+                StopCoroutine(selfPlayerCard);
 
             StopAllCoroutines();
             DOTween.KillAll();

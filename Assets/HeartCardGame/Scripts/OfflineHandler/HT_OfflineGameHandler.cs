@@ -11,7 +11,7 @@ namespace HeartCardGame
         public static HT_OfflineGameHandler instance;
 
         [Header("===== Object Scripts =====")]
-        [SerializeField] private GameObject gamePlay;
+        [SerializeField] internal GameObject gamePlay;
 
         [SerializeField] private HT_JoinTableHandler joinTableHandler;
         [SerializeField] private HT_GameStartTimerManager gameStartTimerManager;

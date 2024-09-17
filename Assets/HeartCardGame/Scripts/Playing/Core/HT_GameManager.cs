@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+using FGSOfflineCallBreak;
 
 namespace HeartCardGame
 {
@@ -73,7 +74,15 @@ namespace HeartCardGame
         {
             audioManager.backgroundAudioSource.mute = true;
             //socketHandler.ForcefullySocketDisconnect();
-            UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+            //UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+
+            //FINAL LEAVE
+
+            CallBreakGameManager.isInGamePlay = false;
+            HT_OfflineGameHandler.instance.gamePlay.SetActive(false);
+            CallBreakUIManager.Instance.dashboardController.OpenScreen();
+
+
         }
 
         //private void UpdateFPS() => fpsText.text = (int)(1 / Time.unscaledDeltaTime) + "";

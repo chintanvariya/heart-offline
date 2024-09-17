@@ -1,3 +1,4 @@
+using HeartCardGame;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -26,7 +27,11 @@ namespace FGSOfflineCallBreak
                     {
                         CallBreakUIManager.Instance.gamePlayController.CloseScreen();
                         CallBreakUIManager.Instance.dashboardController.OpenScreen();
-                        CloseScreen();  
+                        CloseScreen();
+
+                        CallBreakGameManager.isInGamePlay = false;
+                        HT_OfflineGameHandler.instance.gamePlay.SetActive(false);
+                        CallBreakUIManager.Instance.dashboardController.OpenScreen();
                     }
                     else
                     {
