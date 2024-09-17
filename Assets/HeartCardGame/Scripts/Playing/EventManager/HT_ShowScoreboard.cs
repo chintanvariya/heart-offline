@@ -55,6 +55,7 @@ namespace HeartCardGame
             {
                 ResetShowScoreboard();
                 roundNumTxt.SetText($"{offlineGameHandler.roundNum}");
+                offlineGameHandler.roundText.SetText($"{offlineGameHandler.roundNum}");
                 List<HT_PlayerController> players = joinTableHandler.playerData.OrderBy(x => x.totalPoint).ToList();
                 for (int i = 0; i < players.Count; i++)
                 {

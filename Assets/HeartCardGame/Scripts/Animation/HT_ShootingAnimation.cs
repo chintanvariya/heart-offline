@@ -21,8 +21,8 @@ namespace HeartCardGame
         [SerializeField] private RectTransform rocketRectTransform;
         int spriteCount = 0;
 
-        [Header("===== Rocket Sprites =====")]
-        [SerializeField] private List<Sprite> rocketSprites;
+        //[Header("===== Rocket Sprites =====")]
+        //[SerializeField] private List<Sprite> rocketSprites;
 
         [Header("===== Model Class =====")]
         [SerializeField] private ShootingResponse shootingResponse;
@@ -43,8 +43,9 @@ namespace HeartCardGame
         {
             uiManager.shootingMoonPanel.SetActive(true);
             InvokeRepeating(nameof(SpriteAnimation), 0f, 0.3f);
-            rocketRectTransform.anchoredPosition = Vector2.zero;
-            DOVirtual.DelayedCall(2.7f, () =>
+            rocketRectTransform.anchoredPosition = new Vector2(0, -250f);
+
+            rocketRectTransform.DOShakePosition(1.5f, 20, 50, 200).OnComplete(() =>
             {
                 CancelInvoke(nameof(SpriteAnimation));
                 rocketRectTransform.DOLocalMove(new Vector3(0, 1400, 0), 3f).OnComplete(() =>
@@ -56,7 +57,9 @@ namespace HeartCardGame
                     //HeartSpadeSpreadAnimation("");
                 });
             });
-
+            //DOVirtual.DelayedCall(2.7f, () =>
+            //{
+            //});
         }
 
         void HeartSpadeSpreadAnimation(string userId = "", int seatIndex = 0)
@@ -67,7 +70,7 @@ namespace HeartCardGame
             {
                 playerControllers = joinTableHandler.playerData.Where((player) => player.mySeatIndex != seatIndex).ToList();
                 player = joinTableHandler.playerData.Find(player => player.mySeatIndex == seatIndex);
-                playerControllers.ForEach(x => 
+                playerControllers.ForEach(x =>
                 {
                     x.roundHeartPoint = 13;
                     x.roundSpadePoint = 13;
@@ -102,7 +105,7 @@ namespace HeartCardGame
 
         public void SpriteAnimation()
         {
-            rocketImg.sprite = rocketSprites[spriteCount];
+            //rocketImg.sprite = rocketSprites[spriteCount];
             spriteCount++;
             if (spriteCount > 11)
                 spriteCount = 0;

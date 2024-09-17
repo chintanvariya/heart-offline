@@ -33,9 +33,11 @@ namespace HeartCardGame
         [Header("===== Card List =====")]
         public List<string> cardNameList;
 
-        [Header("===== Sprite List =====")]
-        public List<Sprite> spritesList;
+        //[Header("===== Sprite List =====")]
+        //public List<Sprite> spritesList;
 
+        public TMPro.TextMeshProUGUI roundText;
+        public TMPro.TextMeshProUGUI lobbyValueText;
         Dictionary<int, int> mapping = new Dictionary<int, int>
         {
             { 0, 2 },
@@ -61,6 +63,7 @@ namespace HeartCardGame
 
         public void PlayerSetup()
         {
+            lobbyValueText.text = CallBreakUIManager.Instance.dashboardController.currentLobbyPlay.lobbyAmount.ToString();
             CallBreakGameManager.isInGamePlay = true;
             gamePlay.SetActive(true);
             roundNum = 1;
