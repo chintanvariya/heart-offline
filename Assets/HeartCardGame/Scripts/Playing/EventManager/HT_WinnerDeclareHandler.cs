@@ -1,8 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
+using FGSOfflineCallBreak;
+using GoogleMobileAds.Api;
+using UnityEngine.UI;
 
-namespace HeartCardGame
+namespace FGSOfflineHeart
 {
     public class HT_WinnerDeclareHandler : MonoBehaviour
     {
@@ -25,15 +28,22 @@ namespace HeartCardGame
         public HT_WinnerHandler winnerHandler;
         public RectTransform winnerDataGenerator;
         [SerializeField] private TMPro.TextMeshProUGUI waitingTxt;
+        [SerializeField] private Button continueBtn;
         [SerializeField] private GameObject nextGameObject;
         private int timeOfNextRound;
 
         [Header("===== Model Class =====")]
         [SerializeField] private WinnerDeclareResponse winnerDeclareResponse;
 
-        private void OnEnable() => eventManager.RegisterEvent(SocketEvents.WINNER_DECLARE, WinnerDeclare);
+        private void OnEnable()
+        {
+            eventManager.RegisterEvent(SocketEvents.WINNER_DECLARE, WinnerDeclare);
+        }
 
-        private void OnDisable() => eventManager.UnregisterEvent(SocketEvents.WINNER_DECLARE, WinnerDeclare);
+        private void OnDisable()
+        {
+            eventManager.UnregisterEvent(SocketEvents.WINNER_DECLARE, WinnerDeclare);
+        }
 
         private void Start() => gameManager.RoundReset += WinnerReset;
 
@@ -79,19 +89,22 @@ namespace HeartCardGame
 
         public void FinalWinnerInfoSet(bool isFinal, int timer, bool isWinner)
         {
+            waitingTxt.gameObject.SetActive(false);
             uiManager.OtherPanelOpen(uiManager.winningPanel, true);
             timeOfNextRound = timer;
             if (isFinal)
             {
+                //waitingTxt.gameObject.SetActive(false);
                 nextGameObject.SetActive(true);
-                waitingTxt.gameObject.SetActive(false);
+                continueBtn.gameObject.SetActive(false);
                 HT_GameManager.instance.audioManager.GamePlayAudioSetting(isWinner ? HT_GameManager.instance.audioManager.winClip : HT_GameManager.instance.audioManager.lossClip);
             }
             else
             {
+                continueBtn.gameObject.SetActive(true);
                 nextGameObject.SetActive(false);
-                waitingTxt.gameObject.SetActive(true);
-                InvokeRepeating(nameof(TimerOnWinningPanel), 0f, 1f);
+                //waitingTxt.gameObject.SetActive(true);
+                //InvokeRepeating(nameof(TimerOnWinningPanel), 0f, 1f);
             }
         }
 
@@ -130,6 +143,14 @@ namespace HeartCardGame
             }
         }
 
+        public void ContinueBtn()
+        {
+            foreach (var player in joinTableHandler.playerData)
+                player.HeartSpadeObjReset();
+            if (gameManager.isOffline)
+                offlineCardDistributor.CardDistribution();
+        }
+
         void WinnerReset()
         {
             foreach (var winner in winnerHandlers)
@@ -139,7 +160,6 @@ namespace HeartCardGame
             winnerHandlers.Clear();
 
             CancelInvoke(nameof(TimerOnWinningPanel));
-
             //dashboardManager.PanelOnOff(dashboardManager.howToPlayPanel, false);
         }
 

@@ -8,7 +8,7 @@ using System.Collections;
 using UnityEngine.Networking;
 using FGSOfflineCallBreak;
 
-namespace HeartCardGame
+namespace FGSOfflineHeart
 {
     public class HT_PlayerController : MonoBehaviour
     {

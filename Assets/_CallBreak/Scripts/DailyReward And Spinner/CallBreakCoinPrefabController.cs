@@ -29,7 +29,8 @@ namespace FGSOfflineCallBreak
 
         public void MoveAnimationToTarget(CallBreakCollectRewardCoinAnimation coinAnimation, Transform target, float jumpMultiplayer, int jumpCount, float jumpTime)
         {
-            particleObject.SetActive(true);
+            if (particleObject != null)
+                particleObject.SetActive(true);
             transform.DOJump(target.position, jumpMultiplayer, jumpCount, jumpTime).SetEase(Ease.Linear).OnComplete(() =>
             {
                 coinAnimation.CompleteAnimation();

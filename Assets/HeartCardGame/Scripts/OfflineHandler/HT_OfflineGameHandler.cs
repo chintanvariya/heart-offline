@@ -4,7 +4,7 @@ using System.Linq;
 using DG.Tweening;
 using FGSOfflineCallBreak;
 
-namespace HeartCardGame
+namespace FGSOfflineHeart
 {
     public class HT_OfflineGameHandler : MonoBehaviour
     {

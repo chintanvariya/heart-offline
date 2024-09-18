@@ -6,7 +6,7 @@ using UnityEditor.Experimental;
 using GoogleMobileAds.Api;
 using System;
 using UnityEditor;
-using HeartCardGame;
+using FGSOfflineHeart;
 
 namespace FGSOfflineCallBreak
 {

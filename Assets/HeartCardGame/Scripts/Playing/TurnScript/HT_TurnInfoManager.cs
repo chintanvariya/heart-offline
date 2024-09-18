@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Linq;
 
-namespace HeartCardGame
+namespace FGSOfflineHeart
 {
     public class HT_TurnInfoManager : MonoBehaviour
     {

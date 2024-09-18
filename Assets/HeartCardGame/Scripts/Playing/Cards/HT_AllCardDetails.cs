@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace HeartCardGame
+namespace FGSOfflineHeart
 {
     public class HT_AllCardDetails : MonoBehaviour
     {

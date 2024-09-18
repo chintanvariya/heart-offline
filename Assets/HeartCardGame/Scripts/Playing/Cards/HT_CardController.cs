@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace HeartCardGame
+namespace FGSOfflineHeart
 {
     public class HT_CardController : MonoBehaviour, IPointerDownHandler
     {

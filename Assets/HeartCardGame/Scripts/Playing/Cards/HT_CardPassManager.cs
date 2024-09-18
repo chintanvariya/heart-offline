@@ -5,7 +5,7 @@ using DG.Tweening;
 using System.Linq;
 using UnityEngine.UI;
 
-namespace HeartCardGame
+namespace FGSOfflineHeart
 {
     public class HT_CardPassManager : MonoBehaviour
     {

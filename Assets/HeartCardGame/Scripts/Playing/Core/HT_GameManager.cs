@@ -3,7 +3,7 @@ using System;
 using UnityEngine.UI;
 using FGSOfflineCallBreak;
 
-namespace HeartCardGame
+namespace FGSOfflineHeart
 {
     public class HT_GameManager : MonoBehaviour
     {
@@ -51,10 +51,14 @@ namespace HeartCardGame
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
         }
 
-        private void Start()
+        private void OnEnable()
         {
             RoundReset += ResetAllPlayer;
             GameReset += ResetGamePlayers;
+        }
+
+        private void Start()
+        {
             //InvokeRepeating(nameof(UpdateFPS), 0f, 1f);
         }
 
@@ -89,6 +93,7 @@ namespace HeartCardGame
 
         public void ResetAllPlayer()
         {
+            StopAllCoroutines();
             offlinePlayerTurnController.isBreakingHearts = false;
             foreach (var player in joinTableHandler.playerData)
             {

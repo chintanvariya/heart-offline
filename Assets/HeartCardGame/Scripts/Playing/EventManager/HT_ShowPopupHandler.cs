@@ -2,7 +2,7 @@ using UnityEngine;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace HeartCardGame
+namespace FGSOfflineHeart
 {
     public class HT_ShowPopupHandler : MonoBehaviour
     {

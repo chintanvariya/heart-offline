@@ -3,7 +3,7 @@ using UnityEngine.Events;
 using System.Collections.Generic;
 using System;
 
-namespace HeartCardGame
+namespace FGSOfflineHeart
 {
     public class HT_EventManager : MonoBehaviour
     {

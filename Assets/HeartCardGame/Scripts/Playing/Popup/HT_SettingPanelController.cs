@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace HeartCardGame
+namespace FGSOfflineHeart
 {
     public class HT_SettingPanelController : MonoBehaviour
     {

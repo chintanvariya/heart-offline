@@ -2,7 +2,7 @@ using UnityEngine;
 using DG.Tweening;
 using Newtonsoft.Json;
 
-namespace HeartCardGame
+namespace FGSOfflineHeart
 {
     public class HT_GameStartTimerManager : MonoBehaviour
     {
@@ -20,7 +20,7 @@ namespace HeartCardGame
         [SerializeField] private RoundTimerResponse roundTimerResponse;
         [SerializeField] private LockInPeriodResponse lockInPeriodResponse;
 
-        private void Start() => gameManager.GameReset += ResetGameStartTimerManage;
+        //private void Start() => gameManager.GameReset += ResetGameStartTimerManage;
 
         private void OnEnable()
         {
@@ -52,7 +52,7 @@ namespace HeartCardGame
         public void GameStartTimer(int timer, bool isTimer)
         {
             Debug.Log($"HT_GameStartTimerManager || GameStartTimer || timer {timer}");
-            CancelInvoke(nameof(TimeInvoke));           
+            CancelInvoke(nameof(TimeInvoke));
             time = timer;
             if (isTimer)
                 InvokeRepeating(nameof(TimeInvoke), 0.01f, 1f);

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
 
-namespace HeartCardGame
+namespace FGSOfflineHeart
 {
     public class HT_CardPassTurnHandler : MonoBehaviour
     {

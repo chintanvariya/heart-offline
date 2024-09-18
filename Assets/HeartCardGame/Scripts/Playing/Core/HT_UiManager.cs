@@ -6,7 +6,7 @@ using System;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-namespace HeartCardGame
+namespace FGSOfflineHeart
 {
     public class HT_UiManager : MonoBehaviour
     {

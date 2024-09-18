@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using System.Linq;
 
-namespace HeartCardGame
+namespace FGSOfflineHeart
 {
     public class HT_ShowScoreboard : MonoBehaviour
     {

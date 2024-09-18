@@ -1,5 +1,5 @@
 using DG.Tweening;
-using HeartCardGame;
+using FGSOfflineHeart;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -119,16 +119,16 @@ namespace FGSOfflineCallBreak
                     Application.OpenURL("https://finixgamesstudio.com/privacy-policy/");
                     break;
                 case "Quit":
-                    if (CallBreakGameManager.isInGamePlay)
-                    {
-                        CallBreakUIManager.Instance.exitController.OpenScreen("Exit", CallBreakConstants.ExitFromGamePlayMessage);
-                    }
-                    else
-                    {
-                        CallBreakUIManager.Instance.exitController.OpenScreen("Exit", CallBreakConstants.ExitFromDashboardPlayMessage);
-                    }
                     menuRoot.DOScale(Vector3.zero, 0.25f).SetEase(Ease.Linear).OnComplete(() =>
                     {
+                        if (CallBreakGameManager.isInGamePlay)
+                        {
+                            CallBreakUIManager.Instance.exitController.OpenScreen("Exit", CallBreakConstants.ExitFromGamePlayMessage);
+                        }
+                        else
+                        {
+                            CallBreakUIManager.Instance.exitController.OpenScreen("Exit", CallBreakConstants.ExitFromDashboardPlayMessage);
+                        }
                         gameObject.SetActive(false);
                     });
 

@@ -82,7 +82,7 @@ namespace FGSOfflineCallBreak
                 {
                     Debug.Log($"Remote data loaded and ready for use. Last fetch time {info.FetchTime}.");
 
-                    string configData = remoteConfig.GetValue("Call_Break_Remote_Config").StringValue;
+                    string configData = remoteConfig.GetValue("Heart_Remote_Config").StringValue;
                     Debug.Log($"<color><b>CallBreakRemoteConfigData => </b>{configData}</color>");
                     remoteConfigData = JsonUtility.FromJson<CallBreakRemoteConfig>(configData);
 

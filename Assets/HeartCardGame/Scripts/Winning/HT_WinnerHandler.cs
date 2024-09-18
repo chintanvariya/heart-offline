@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-namespace HeartCardGame
+namespace FGSOfflineHeart
 {
     public class HT_WinnerHandler : MonoBehaviour
     {

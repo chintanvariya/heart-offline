@@ -1,7 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 
-namespace HeartCardGame
+namespace FGSOfflineHeart
 {
     public class HT_HeartSpadeAnimationHandler : MonoBehaviour
     {

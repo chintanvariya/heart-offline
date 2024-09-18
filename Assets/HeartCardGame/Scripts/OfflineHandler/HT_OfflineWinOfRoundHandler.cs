@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Linq;
 using DG.Tweening;
 
-namespace HeartCardGame
+namespace FGSOfflineHeart
 {
     public class HT_OfflineWinOfRoundHandler : MonoBehaviour
     {

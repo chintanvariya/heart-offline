@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 using System.Linq;
 using System.Collections;
 
-namespace HeartCardGame
+namespace FGSOfflineHeart
 {
     public class HT_ShootingAnimation : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace HeartCardGame
+namespace FGSOfflineHeart
 {
     public class HT_CollectBootHandler : MonoBehaviour
     {

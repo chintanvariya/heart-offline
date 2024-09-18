@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace HeartCardGame
+namespace FGSOfflineHeart
 {
     public class HT_PreCardPass : MonoBehaviour
     {

@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using DG.Tweening;
 using System.Collections.Generic;
 
-namespace HeartCardGame
+namespace FGSOfflineHeart
 {
     public class HT_WinOfRound : MonoBehaviour
     {

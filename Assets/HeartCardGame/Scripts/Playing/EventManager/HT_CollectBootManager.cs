@@ -4,7 +4,7 @@ using DG.Tweening;
 using System;
 using Newtonsoft.Json;
 
-namespace HeartCardGame
+namespace FGSOfflineHeart
 {
     public class HT_CollectBootManager : MonoBehaviour
     {

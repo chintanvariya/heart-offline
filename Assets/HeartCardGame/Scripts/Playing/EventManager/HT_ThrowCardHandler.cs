@@ -2,7 +2,7 @@ using UnityEngine;
 using Newtonsoft.Json;
 using System.Linq;
 
-namespace HeartCardGame
+namespace FGSOfflineHeart
 {
     public class HT_ThrowCardHandler : MonoBehaviour
     {

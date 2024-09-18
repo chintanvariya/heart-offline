@@ -1,4 +1,4 @@
-using HeartCardGame;
+using FGSOfflineHeart;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -14,8 +14,9 @@ namespace FGSOfflineCallBreak
         {
             titleText.text = title;
             descriptionText.text = description;
-
             gameObject.SetActive(true);
+
+            Time.timeScale = 0;
         }
 
         public void OnButtonClicked(string buttonName)
@@ -29,9 +30,13 @@ namespace FGSOfflineCallBreak
                         CallBreakUIManager.Instance.dashboardController.OpenScreen();
                         CloseScreen();
 
+                        HT_GameManager.instance.RoundReset();
+                        HT_GameManager.instance.GameReset();
+
                         CallBreakGameManager.isInGamePlay = false;
                         HT_OfflineGameHandler.instance.gamePlay.SetActive(false);
                         CallBreakUIManager.Instance.dashboardController.OpenScreen();
+                        Time.timeScale = 1;
                     }
                     else
                     {
@@ -43,6 +48,7 @@ namespace FGSOfflineCallBreak
                     }
                     break;
                 case "No":
+                    Time.timeScale = 1;
                     CloseScreen();
                     break;
             }
