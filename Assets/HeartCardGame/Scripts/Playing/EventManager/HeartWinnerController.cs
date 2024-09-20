@@ -11,7 +11,15 @@ namespace FGSOfflineHeart
 
         public void ShowAds()
         {
-            GoogleMobileAds.Sample.InterstitialAdController.ShowInterstitialAd();
+            if (CallBreakConstants.callBreakRemoteConfig.flagDetails.isAds)
+            {
+                if (CallBreakConstants.callBreakRemoteConfig.adsDetails.isShowInterstitialAdsOnScoreBoard)
+                    GoogleMobileAds.Sample.InterstitialAdController.ShowInterstitialAd();
+                else
+                    winnerDeclareHandler.ContinueBtn();
+            }
+            else
+                winnerDeclareHandler.ContinueBtn();
         }
         private void OnEnable()
         {

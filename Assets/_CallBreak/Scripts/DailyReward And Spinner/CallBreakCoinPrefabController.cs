@@ -31,10 +31,13 @@ namespace FGSOfflineCallBreak
         {
             if (particleObject != null)
                 particleObject.SetActive(true);
-            transform.DOJump(target.position, jumpMultiplayer, jumpCount, jumpTime).SetEase(Ease.Linear).OnComplete(() =>
+            if (transform != null)
             {
-                coinAnimation.CompleteAnimation();
-            });
+                transform.DOJump(target.position, jumpMultiplayer, jumpCount, jumpTime).SetEase(Ease.Linear).OnComplete(() =>
+                {
+                    coinAnimation.CompleteAnimation();
+                });
+            }
         }
     }
 }

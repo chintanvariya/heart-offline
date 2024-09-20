@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using FGSOfflineCallBreak;
 using GoogleMobileAds.Api;
 using UnityEngine.UI;
+using System.Collections;
 
 namespace FGSOfflineHeart
 {
@@ -98,6 +99,8 @@ namespace FGSOfflineHeart
                 nextGameObject.SetActive(true);
                 continueBtn.gameObject.SetActive(false);
                 HT_GameManager.instance.audioManager.GamePlayAudioSetting(isWinner ? HT_GameManager.instance.audioManager.winClip : HT_GameManager.instance.audioManager.lossClip);
+
+                StartCoroutine(WinnerAnimation(isWinner, 1));
             }
             else
             {
@@ -106,6 +109,14 @@ namespace FGSOfflineHeart
                 //waitingTxt.gameObject.SetActive(true);
                 //InvokeRepeating(nameof(TimerOnWinningPanel), 0f, 1f);
             }
+        }
+
+        IEnumerator WinnerAnimation(bool isWinner, int rank)
+        {
+            yield return new WaitForSeconds(1f);
+            uiManager.OtherPanelOpen(uiManager.winningPanel, false);
+            CallBreakUIManager.Instance.winnerLoserController.OpenWinnerAndLosserScreen(isWinner, rank);
+
         }
 
         public void WinnerPreSetting(int nextRound)

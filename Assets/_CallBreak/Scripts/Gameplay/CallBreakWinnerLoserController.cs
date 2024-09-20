@@ -5,6 +5,8 @@ using TMPro;
 using GoogleMobileAds.Api;
 using System.Collections.Generic;
 using System.Collections;
+using FGSOfflineHeart;
+
 namespace FGSOfflineCallBreak
 {
     public class CallBreakWinnerLoserController : MonoBehaviour
@@ -173,11 +175,13 @@ namespace FGSOfflineCallBreak
                     CallBreakUIManager.Instance.dashboardController.OpenScreen();
                     CallBreakUIManager.Instance.gamePlayController.CloseScreen();
                     gameObject.SetActive(false);
+                    HT_GameManager.instance.ReloadScene();
                     break;
                 case "Home":
                     CallBreakUIManager.Instance.dashboardController.OpenScreen();
                     CallBreakUIManager.Instance.gamePlayController.CloseScreen();
                     gameObject.SetActive(false);
+                    HT_GameManager.instance.ReloadScene();
                     break;
                 default:
                     break;
