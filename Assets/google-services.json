@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "745156377864",
-    "project_id": "heart-de125",
-    "storage_bucket": "heart-de125.appspot.com"
+    "project_number": "798488525371",
+    "project_id": "hearts-b1326",
+    "storage_bucket": "hearts-b1326.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:745156377864:android:3ffb6d98f72f15a22b40bd",
+        "mobilesdk_app_id": "1:798488525371:android:8fcaee54ec055dee733a1e",
         "android_client_info": {
-          "package_name": "com.finixgamestudio.heart"
+          "package_name": "com.chintugames.hearts"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyC52Veeb-7mYmI-uMkDghaTVtWwNyPE6WY"
+          "current_key": "AIzaSyDeqgInf8UH4oPARZTxNYp3cWPYTPEtfmE"
         }
       ],
       "services": {

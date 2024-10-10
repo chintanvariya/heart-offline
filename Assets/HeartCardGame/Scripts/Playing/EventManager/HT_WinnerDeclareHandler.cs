@@ -93,30 +93,31 @@ namespace FGSOfflineHeart
             waitingTxt.gameObject.SetActive(false);
             uiManager.OtherPanelOpen(uiManager.winningPanel, true);
             timeOfNextRound = timer;
+            nextGameObject.SetActive(false);
             if (isFinal)
             {
                 //waitingTxt.gameObject.SetActive(false);
-                nextGameObject.SetActive(true);
                 continueBtn.gameObject.SetActive(false);
+                //nextGameObject.SetActive(true);
                 HT_GameManager.instance.audioManager.GamePlayAudioSetting(isWinner ? HT_GameManager.instance.audioManager.winClip : HT_GameManager.instance.audioManager.lossClip);
 
-                StartCoroutine(WinnerAnimation(isWinner, 1));
+                StartCoroutine(WinnerAnimation(isWinner, isWinner ? 1 : 4));
             }
             else
             {
                 continueBtn.gameObject.SetActive(true);
-                nextGameObject.SetActive(false);
+                //nextGameObject.SetActive(false);
                 //waitingTxt.gameObject.SetActive(true);
+                //timeOfNextRound = 2;
                 //InvokeRepeating(nameof(TimerOnWinningPanel), 0f, 1f);
             }
         }
 
         IEnumerator WinnerAnimation(bool isWinner, int rank)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.5f);
             uiManager.OtherPanelOpen(uiManager.winningPanel, false);
             CallBreakUIManager.Instance.winnerLoserController.OpenWinnerAndLosserScreen(isWinner, rank);
-
         }
 
         public void WinnerPreSetting(int nextRound)

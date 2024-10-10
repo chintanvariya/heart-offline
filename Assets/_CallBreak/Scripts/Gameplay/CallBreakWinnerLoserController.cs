@@ -161,7 +161,7 @@ namespace FGSOfflineCallBreak
 
         public void OnButtonClicked(string buttonName)
         {
-            Debug.Log(buttonName);
+            Debug.Log("CallBreakWinnerLoserController || " + buttonName);
             switch (buttonName)
             {
                 case "Collect":

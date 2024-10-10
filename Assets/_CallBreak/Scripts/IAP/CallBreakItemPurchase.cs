@@ -14,6 +14,8 @@ namespace FGSOfflineCallBreak
 
         public void OpenScreen()
         {
+            CallBreakUIManager.Instance.toolTipsController.OpenToolTips("AdsIsNotReady", "Coming soon !!", "");
+            return;
             for (int i = 0; i < allCoinPack.Count; i++)
             {
                 allCoinPack[i].UpdateTheValue(CallBreakIAPManager.Instance.ReturnTheProduct(allCoinPackString[i]));
